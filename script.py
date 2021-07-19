@@ -1,4 +1,4 @@
-from gameplay import display_board
+from gameplay import display_board, play
 
 #Create welcome message
 print(
@@ -17,3 +17,5 @@ board = [" "," "," "," "," "," "," "," "," "]
 
 
 display_board(board)
+
+play(board)
