@@ -1,4 +1,4 @@
-from gameplay import display_board, play
+from gameplay import play
 
 #Create welcome message
 print(
@@ -8,14 +8,8 @@ print(
 " T" + "   I" + "  C" + "      T"+"  A A"+" C"+"      T"+"  O O"+" E"+"\n"
 " T" + "  III" + " CCC" + "    T"+"  A A"+" CCC"+"    T"+"  OOO"+" EEE"+ "\n"
 )
-print("Welcome to Tic Tac Toe! A game you can play by yourself or with another.")
-print("")
-players = input("How many players? (1 or 2)\n")
-print("You have selected a " + players + "-player game.\n")
+print("Welcome to Tic Tac Toe! A 2 person game.")
 
-board = [" "," "," "," "," "," "," "," "," "]
-
-
-display_board(board)
+board = ["0","1","2","3","4","5","6","7","8"]
 
 play(board)
