@@ -26,7 +26,7 @@ class Play_Game:
 
         if board[position] == 'X' or board[position] == 'O':
             correct_input = False
-        
+
         if not correct_input:
             print("Position already taken!")
             self.display_board(board)
@@ -50,10 +50,11 @@ class Play_Game:
                     if first == player_symbol[0]:
                         self.display_board(board)
                         print('Player 1 wins!')
+                        self.play_again()
                     else:
                         self.display_board(board)
                         print('Player 2 wins!')
-                    break
+                        self.play_again()
             else:
                 won = False
         if won:
@@ -72,3 +73,19 @@ class Play_Game:
         if not self.empty:
             self.display_board(self.board)
             print("Cat's Game!")
+            self.play_again()
+    
+    def play_again(self):
+        while True:
+            ask = input("Do you want to play again? (Y/N)").lower()
+            if ask == "y":
+               print("Ok! Setting up new game")
+               self.board = ["0","1","2","3","4","5","6","7","8"]
+               self.empty = [0,1,2,3,4,5,6,7,8]
+               self.play()
+            elif ask == "n":
+                print("See you next time!")
+                quit()
+            else:
+                print("That's not an acceptable response!")
+                self.play_again()
