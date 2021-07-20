@@ -37,31 +37,24 @@ class Play_Game:
             return 1
 
     def check_win(self, board):
-        player_symbol = ['X', 'O']
         for check in self.win_combinations:
-            first = board[check[0]]
-            if first != ' ':
-                won = True
-                for point in check:
-                    if board[point] != first:
-                        won = False
-                        break
-                if won:
-                    if first == player_symbol[0]:
-                        self.display_board(board)
-                        print('Player 1 wins!')
-                        self.play_again()
-                    else:
-                        self.display_board(board)
-                        print('Player 2 wins!')
-                        self.play_again()
+            won = True
+
+            if board[check[0]] == board[check[1]] == board[check[2]] == 'X':
+                self.display_board(board)
+                print("X wins!")
+                self.play_again()
+            elif board[check[0]] == board[check[1]] == board[check[2]] == 'O':
+                self.display_board(board)
+                print("O wins!")
+                self.play_again()
             else:
                 won = False
+
         if won:
             return 0
         else:
             return 1
-
 
     def play(self):
         player = 0
@@ -78,12 +71,12 @@ class Play_Game:
     def play_again(self):
         while True:
             ask = input("Do you want to play again? (Y/N)").lower()
-            if ask == "y":
+            if ask[0] == "y":
                print("Ok! Setting up new game")
                self.board = ["0","1","2","3","4","5","6","7","8"]
                self.empty = [0,1,2,3,4,5,6,7,8]
                self.play()
-            elif ask == "n":
+            elif ask[0] == "n":
                 print("See you next time!")
                 quit()
             else:
